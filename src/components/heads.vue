@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header-left">
-      <van-icon name="wap-nav" class="tips-i" size="0.24rem" />
+      <van-icon name="wap-nav" class="tips-i" size="0.24rem" @click='topLeft' />
     </div>
     <div class="header-tabs">
       <ul class='tabs'>
@@ -27,6 +27,9 @@ export default {
   methods:{
       tabsClick(i){
          this.$emit('tabsqh',i);
+      },
+      topLeft(){
+          this.$emit("topLeft");
       }
   }
 };
@@ -37,6 +40,7 @@ export default {
   padding-top: 0.2rem;
   height: 0.4rem;
   width: 100%;
+  background-color:rgba(255,255,255,.95);
   display: flex;
   .header-left,
   .header-right {
@@ -49,10 +53,12 @@ export default {
       margin-top: 0.08rem;
       width: 0.24rem;
       height: 0.24rem;
+  
     }
   }
   .header-tabs {
     flex-grow: 1;
+
     .tabs{
         width:100%;
         line-height:0.4rem;
@@ -61,6 +67,7 @@ export default {
         box-sizing: border-box;
         display:flex;
         justify-content: space-around;
+       
         li{
             font-size:0.16rem;
             color:#e0e0e0;
